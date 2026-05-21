@@ -1,0 +1,9 @@
+grafana:
+  rbac:
+    pspEnabled: false
+
+  extraSecretMounts:
+    - name: flag
+      secretName: 01-grafana-cve-flag
+      mountPath: /etc/ctf
+      readOnly: true
