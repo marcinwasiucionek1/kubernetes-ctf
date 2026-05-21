@@ -45,7 +45,7 @@ infra/        # Shared Kubernetes services (metrics-server)
 
 | id | topic | difficulty |
 | --- | --- | --- |
-| [`01-grafana-cve-2021-43798`](challenges/01-grafana-cve-2021-43798/README.md) | unauthenticated path traversal, file disclosure | beginner |
+| [`01-grafana-cve`](challenges/01-grafana-cve/README.md) | unauthenticated path traversal, file disclosure | beginner |
 
 ## Resources
 List of resources used during work on this repository:
