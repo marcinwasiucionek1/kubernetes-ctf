@@ -17,7 +17,7 @@
 
 # CHALLENGE CONVENTIONS
 - Challenge IDs follow `NN-slug` (e.g. `02-rbac-escape`), the Helm release name strips the numeric prefix (`rbac-escape`)
-- Flag secret is always named `<id>-flag`, mounted at `/etc/ctf/flag.txt` inside the container
+- Flag secret is always mounted at `/etc/ctf/flag.txt` inside the container
 - Flags are dynamically generated on deployment of each challenge
 - Flags follow the pattern `ctf\{[^}]*\}`
 
