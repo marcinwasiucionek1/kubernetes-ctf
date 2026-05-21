@@ -37,9 +37,8 @@ task ch:teardown -- 01-grafana-cve # teardown first challenge
 
 ```
 .claude/      # Claude Code configuration
-challenges/   # one Helm chart per challenge
-infra/        # kind config + shared services (metrics-server)
-.github/workflows/  # lint
+challenges/   # One Helm chart per challenge
+infra/        # Shared Kubernetes services (metrics-server)
 ```
 
 ## Challenges
