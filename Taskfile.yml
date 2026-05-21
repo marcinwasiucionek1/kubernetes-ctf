@@ -51,7 +51,7 @@ tasks:
     vars:
       RELEASE: '{{regexReplaceAll "^[0-9]+-" .CHALLENGE ""}}'
       FORWARD: '{{default "false" .FORWARD}}'
-      LOCAL_PORT: '{{default "8081" .LOCAL_PORT}}'
+      LOCAL_PORT: '{{default "8080" .LOCAL_PORT}}'
       REMOTE_PORT: '{{default "80" .REMOTE_PORT}}'
     cmds:
       - kubectl create namespace {{.CHALLENGE}}
