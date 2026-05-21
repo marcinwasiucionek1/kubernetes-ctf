@@ -22,7 +22,7 @@ Grafana is now available at `http://localhost:8080`.
 
 <details>
 <summary>Hint 1</summary>
-Grafana 8.x has a known CVE that lets unauthenticated users read files from the server.
+Grafana 8.3.0 has a known CVE that lets unauthenticated users read files from the server.
 </details>
 
 <details>
