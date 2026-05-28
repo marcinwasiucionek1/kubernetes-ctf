@@ -1,0 +1,3 @@
+apiVersion: v2
+name: automount-token
+version: 0.1.0
