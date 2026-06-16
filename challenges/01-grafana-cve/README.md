@@ -5,7 +5,7 @@
 
 ## Goal
 
-Read the flag from a running Grafana instance without logging in.
+Read the flag from a running Grafana instance without logging in. The flag is  mounted at `/etc/ctf/flag.txt` inside the container. 
 
 ## Setup
 
