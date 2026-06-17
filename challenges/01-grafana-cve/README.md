@@ -5,7 +5,7 @@
 
 ## Goal
 
-Read the flag from a running Grafana instance without logging in. The flag is  mounted at `/etc/ctf/flag.txt` inside the container. 
+Read the flag from a running Grafana instance without logging in. The flag is  mounted at `/etc/ctf/flag` inside the container. 
 
 ## Setup
 
@@ -32,5 +32,5 @@ The vulnerable endpoint is under <code>/public/plugins/</code>. Think path trave
 
 <details>
 <summary>Hint 3</summary>
-The flag is at <code>/etc/ctf/flag.txt</code> on the container filesystem.
+The flag is at <code>/etc/ctf/flag</code> on the container filesystem.
 </details>
