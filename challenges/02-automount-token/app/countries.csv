@@ -25,7 +25,7 @@ Benin,BJ,BEN
 Bermuda,BM,BMU
 Bhutan,BT,BTN
 Bolivia,BO,BOL
-"Bonaire, Sint Eustatius and Saba",BQ,BES
+Bonaire, Sint Eustatius and Saba,BQ,BES
 Bosnia and Herzegovina,BA,BIH
 Botswana,BW,BWA
 Bouvet Island,BV,BVT
@@ -49,7 +49,7 @@ Cocos (Keeling) Islands,CC,CCK
 Colombia,CO,COL
 Comoros,KM,COM
 Congo,CG,COG
-"Congo, The Democratic Republic of the",CD,COD
+The Democratic Republic of the Congo,CD,COD
 Cook Islands,CK,COK
 Costa Rica,CR,CRI
 Croatia,HR,HRV
@@ -183,7 +183,7 @@ Russia,RU,RUS
 Rwanda,RW,RWA
 Réunion,RE,REU
 Saint Barthélemy,BL,BLM
-"Saint Helena, Ascension and Tristan da Cunha",SH,SHN
+Saint Helena Ascension and Tristan da Cunha,SH,SHN
 Saint Kitts and Nevis,KN,KNA
 Saint Lucia,LC,LCA
 Saint Martin (French part),MF,MAF
@@ -240,8 +240,8 @@ Uzbekistan,UZ,UZB
 Vanuatu,VU,VUT
 Venezuela,VE,VEN
 Vietnam,VN,VNM
-"Virgin Islands, British",VG,VGB
-"Virgin Islands, U.S.",VI,VIR
+Virgin Islands British,VG,VGB
+Virgin Islands U.S.,VI,VIR
 Wallis and Futuna,WF,WLF
 Western Sahara,EH,ESH
 Yemen,YE,YEM

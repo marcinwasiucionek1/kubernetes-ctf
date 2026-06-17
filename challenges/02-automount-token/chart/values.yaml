@@ -1,0 +1,6 @@
+image:
+  repository: automount-token
+  tag: latest
+  pullPolicy: Always
+
+replicaCount: 1
