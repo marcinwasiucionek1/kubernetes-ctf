@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Country Code Reference</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="card">
+    <header>
+      <img src="{{ url_for('static', filename='favicon.png') }}" alt="Globe" class="logo" />
+      <div class="header-text">
+        <h1>Country Code Reference</h1>
+        <p class="tagline">ISO 3166-1 alpha-2 / alpha-3 lookup</p>
+      </div>
+    </header>
+
+    <form method="POST" action="/search">
+      <div class="search-row">
+        <input
+          type="text"
+          name="country"
+          placeholder="Enter country name — e.g. Poland"
+          autocomplete="off"
+          {% if query is defined %}value="{{ query }}"{% endif %}
+        />
+        <button type="submit">Search</button>
+      </div>
+    </form>
+
+    {% if rows is defined %}
+    <section class="results">
+      {% if rows %}
+      <table>
+        <thead>
+          <tr>
+            <th>Country</th>
+            <th>Alpha-2</th>
+            <th>Alpha-3</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in rows %}
+          <tr>
+            <td>{{ row[0] }}</td>
+            <td class="code">{{ row[1] }}</td>
+            <td class="code">{{ row[2] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% elif error %}
+      <p class="no-results">{{ error }}</p>
+      {% endif %}
+    </section>
+    {% endif %}
+  </div>
+</body>
+</html>
