@@ -6,7 +6,7 @@ Learn how real-world Kubernetes misconfigurations and CVEs are exploited, one se
 ## Purpose 
 This is a set of challenges meant for learning Kubernetes security. It is meant to run locally and be completed in a self-paced way for everyone to learn about common security pitfalls.
 
-Each challenge is a Helm chart in `challenges/<NN-name>/` that deploys a vulnerable workload with a flag to be captured.
+Each challenge is a Helm chart in `challenges/<NN-name>/` that deploys a vulnerable workload with a flag to be captured. Depending on the challenge, the flag may be stored in a Kubernetes Secret, a file inside a container, or revealed only after executing a specific command. The exact flag location is described in the challenge documentation.
 
 ## Prerequisites
 
@@ -46,6 +46,7 @@ infra/        # Shared Kubernetes services (metrics-server)
 | id | topic | difficulty |
 | --- | --- | --- |
 | [`01-grafana-cve`](challenges/01-grafana-cve/README.md) | unauthenticated path traversal, file disclosure | beginner |
+| [`02-automount-token`](challenges/02-automount-token/README.md) | command injection, Kubernetes service account token abuse | beginner |
 
 ## Resources
 List of resources used during work on this repository:
