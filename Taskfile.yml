@@ -59,11 +59,11 @@ tasks:
         cmd: |
           kubectl create secret generic {{.CHALLENGE}}-flag \
             --namespace {{.CHALLENGE}} \
-            --from-literal=flag.txt="ctf{$(openssl rand -hex 16)}" \
+            --from-literal=flag="ctf{$(openssl rand -hex 16)}" \
             --dry-run=client -o yaml | kubectl apply -f -
       - platforms: [windows]
         cmd: |
-          powershell -Command "\$r=Get-Random; kubectl create secret generic {{.CHALLENGE}}-flag --namespace {{.CHALLENGE}} \"--from-literal=flag.txt=ctf{\$r}\" --dry-run=client -o yaml" | kubectl apply -f -
+          powershell -Command "\$r=Get-Random; kubectl create secret generic {{.CHALLENGE}}-flag --namespace {{.CHALLENGE}} \"--from-literal=flag=ctf{\$r}\" --dry-run=client -o yaml" | kubectl apply -f -
       - helm dependency build {{.CHALLENGES_DIR}}/{{.CHALLENGE}}/chart
       - helm upgrade --install {{.RELEASE}} {{.CHALLENGES_DIR}}/{{.CHALLENGE}}/chart
           --namespace {{.CHALLENGE}} --create-namespace
