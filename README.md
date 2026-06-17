@@ -6,7 +6,7 @@ Learn how real-world Kubernetes misconfigurations and CVEs are exploited, one se
 ## Purpose 
 This is a set of challenges meant for learning Kubernetes security. It is meant to run locally and be completed in a self-paced way for everyone to learn about common security pitfalls.
 
-Each challenge is a Helm chart in `challenges/<NN-name>/` that deploys a vulnerable workload and mounts a flag at `/etc/ctf/flag.txt`.
+Each challenge is a Helm chart in `challenges/<NN-name>/` that deploys a vulnerable workload with a flag to be captured.
 
 ## Prerequisites
 

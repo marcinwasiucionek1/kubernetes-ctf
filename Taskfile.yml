@@ -1,7 +1,6 @@
 version: "3"
 
 vars:
-  CLUSTER_NAME: kubernetes-ctf
   CHALLENGES_DIR: challenges
 
 tasks:
@@ -34,6 +33,20 @@ tasks:
       - task: _ch:teardown
         vars: { CHALLENGE: "01-grafana-cve" }
 
+  ch-02:deploy:
+    desc: "Deploy 02-automount-token [FORWARD=true LOCAL_PORT=8080 REMOTE_PORT=80]"
+    cmds:
+      - docker build --platform linux/amd64 -t automount-token:latest {{.CHALLENGES_DIR}}/02-automount-token/app
+      - kind load docker-image automount-token:latest 
+      - task: _ch:deploy
+        vars: { CHALLENGE: "02-automount-token", FORWARD: "{{.FORWARD}}", LOCAL_PORT: "{{.LOCAL_PORT}}", REMOTE_PORT: "{{.REMOTE_PORT}}" }
+
+  ch-02:teardown:
+    desc: Teardown 02-automount-token
+    cmds:
+      - task: _ch:teardown
+        vars: { CHALLENGE: "02-automount-token" }
+
   # internal tasks, not meant to be called directly by users
 
   _ch:forward:
@@ -59,11 +72,11 @@ tasks:
         cmd: |
           kubectl create secret generic {{.CHALLENGE}}-flag \
             --namespace {{.CHALLENGE}} \
-            --from-literal=flag.txt="ctf{$(openssl rand -hex 16)}" \
+            --from-literal=flag="ctf{$(openssl rand -hex 16)}" \
             --dry-run=client -o yaml | kubectl apply -f -
       - platforms: [windows]
         cmd: |
-          powershell -Command "\$r=Get-Random; kubectl create secret generic {{.CHALLENGE}}-flag --namespace {{.CHALLENGE}} \"--from-literal=flag.txt=ctf{\$r}\" --dry-run=client -o yaml" | kubectl apply -f -
+          powershell -Command "\$r=Get-Random; kubectl create secret generic {{.CHALLENGE}}-flag --namespace {{.CHALLENGE}} \"--from-literal=flag=ctf{\$r}\" --dry-run=client -o yaml" | kubectl apply -f -
       - helm dependency build {{.CHALLENGES_DIR}}/{{.CHALLENGE}}/chart
       - helm upgrade --install {{.RELEASE}} {{.CHALLENGES_DIR}}/{{.CHALLENGE}}/chart
           --namespace {{.CHALLENGE}} --create-namespace
