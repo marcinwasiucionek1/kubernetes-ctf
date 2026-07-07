@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registry Dashboard</title>
+  <link rel="icon" type="image/png" href="/static/favicon.png" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="card">
+    <header>
+      <img src="/static/favicon.png" alt="Registry" class="logo" />
+      <div class="header-text">
+        <h1>Internal Registry Dashboard</h1>
+        <p class="tagline">Container Image Registry &mdash; Namespace: 03-image-tag</p>
+      </div>
+    </header>
+
+    <section class="info">
+      <p>You have been granted access to the container registry. The Kubernetes deployment is <strong>locked</strong> &mdash; it cannot be modified and will always run image <code>image-tag:1.0.0</code>. The pod is restarted every minute.</p>
+    </section>
+
+    <section class="results">
+      <h2 class="section-title">Deployed Images</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Tag</th>
+            <th>Pull Policy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>image-tag</td>
+            <td class="code">1.0.0</td>
+            <td class="code">Always</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="commands">
+      <h2 class="section-title">Kind Commands</h2>
+      <pre class="code-block">
+# List images on the cluster node
+## Linux / macOS
+docker exec kind-control-plane crictl images | grep '^docker.io/library/'
+## Windows
+docker exec kind-control-plane crictl images | Select-String '^docker\.io/library/'
+
+# Load a local image into the cluster
+kind load docker-image image-tag:1.0.0</pre>
+    </section>
+
+    <p class="footer-note">Pods refresh every minute &mdash; registry changes are picked up automatically.</p>
+  </div>
+</body>
+</html>

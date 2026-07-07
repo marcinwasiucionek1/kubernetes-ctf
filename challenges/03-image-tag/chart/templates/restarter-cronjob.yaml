@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: "{{ .Release.Name }}-restarter"
+  namespace: {{ .Release.Namespace }}
+spec:
+  schedule: "* * * * *"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: "{{ .Release.Name }}-restarter"
+          restartPolicy: OnFailure
+          containers:
+            - name: restarter
+              image: bitnami/kubectl:latest
+              command:
+                - kubectl
+                - rollout
+                - restart
+                - deployment/{{ .Release.Name }}
+                - -n
+                - {{ .Release.Namespace }}
