@@ -19,6 +19,7 @@ The following tools must be installed and available on your `PATH`:
 | [kubectl](https://kubernetes.io/docs/tasks/tools/) | Kubernetes CLI |
 | [helm](https://helm.sh/docs/intro/install/) | Deploy challenge charts |
 | [task](https://taskfile.dev/installation/) | Run repo tasks |
+| [ncat](https://nmap.org/ncat/) | Establish reverse shell |
 
 Run `task preflight` to verify all tools are present before proceeding.
 
@@ -47,6 +48,7 @@ infra/        # Shared Kubernetes services (metrics-server)
 | --- | --- | --- |
 | [`01-grafana-cve`](challenges/01-grafana-cve/README.md) | unauthenticated path traversal, file disclosure | beginner |
 | [`02-automount-token`](challenges/02-automount-token/README.md) | command injection, Kubernetes service account token abuse | beginner |
+| [`03-image-tag`](challenges/03-image-tag/README.md) | supply chain attack, mutable image tags, container registry security | beginner |
 
 ## Resources
 List of resources used during work on this repository:
