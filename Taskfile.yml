@@ -7,11 +7,22 @@ tasks:
   preflight:
     desc: Check required tools are installed
     cmds:
-      - command -v docker   || (echo "docker not found"   && exit 1)
-      - command -v kind     || (echo "kind not found"     && exit 1)
-      - command -v kubectl  || (echo "kubectl not found"  && exit 1)
-      - command -v helm     || (echo "helm not found"     && exit 1)
-      - echo "All tools present."
+      - platforms: [linux, darwin]
+        cmd: |
+          for tool in docker kind kubectl helm ncat; do
+            command -v "$tool" || (echo "$tool not found" && exit 1)
+          done
+          echo "All tools present."
+      - platforms: [windows]
+        cmd: |
+          powershell -NoProfile -Command "
+            foreach (\$t in @('docker','kind','kubectl','helm','ncat')) {
+              if (-not (Get-Command \$t -ErrorAction SilentlyContinue)) {
+                Write-Error \"\$t not found\"; exit 1
+              }
+            }
+            Write-Host 'All tools present.'
+          "
 
   bootstrap:
     desc: Install shared cluster services (metrics-server)
