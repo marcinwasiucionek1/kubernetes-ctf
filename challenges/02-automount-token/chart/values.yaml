@@ -1,5 +1,5 @@
 image:
-  repository: automount-token
+  name: automount-token
   tag: latest
   pullPolicy: Always
 
