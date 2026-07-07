@@ -1,6 +1,6 @@
 # 03 — Image Tag
 
-**Difficulty:** easy  
+**Difficulty:** beginner  
 **Topic:** supply chain attack, mutable image tags, container registry security
 
 ## Goal
