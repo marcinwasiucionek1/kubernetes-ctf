@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data center electricity demand</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main>
+    <h1>Share of electricity demand from data centers</h1>
+    <div id="chart" class="chart" role="img" aria-label="Line chart of electricity demand share"></div>
+    <div id="legend" class="legend"></div>
+    <p class="attribution">International Energy Agency (2025); International Energy Agency (2026); Ember (2026) – with major processing by Our World in Data</p>
+  </main>
+  <script src="{{ url_for('static', filename='chart.js') }}" defer></script>
+</body>
+</html>
